@@ -65,9 +65,9 @@ class ControllerEmailToken
             $id = null;
             $nome = $_POST['nome'];
             $email = $_POST['email'];
-            $senha = $_POST['senha'];
+            $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
             $role = $_POST['roles'];
- 
+            
             //instancia a classe
             $obj = new ClassDB();
             $obj->insertDB(

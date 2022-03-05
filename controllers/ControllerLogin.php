@@ -11,7 +11,7 @@ class ControllerLogin
         if(isset($_POST['email']) && isset($_POST['senha'])){
             //variaveis posts
             $email = $_POST['email'];
-            $pass = $_POST['senha'];
+            $senha = $_POST['senha'];
 
             //variaveis empty
             if(empty($_POST['email'])){
@@ -27,12 +27,11 @@ class ControllerLogin
             //busca no DB
             if($sql->rowCount() > 0){
                 $row = $sql->fetch(\PDO::FETCH_ASSOC);
-                $pass = $row['senha'];
             
                 //if email
                 if($row['email'] === $_POST['email']){
                     //if pass
-                    if($row['senha'] === $_POST['senha']){
+                    if(password_hash($_POST['senha'], PASSWORD_DEFAULT)){
                         //start session 
                         session_start();
                         $_SESSION['login'] = true;

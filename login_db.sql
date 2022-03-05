@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 05-Mar-2022 às 22:55
+-- Tempo de geração: 06-Mar-2022 às 00:02
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 8.0.9
 
@@ -31,7 +31,7 @@ CREATE TABLE `login_db` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(40) NOT NULL,
+  `senha` varchar(255) NOT NULL,
   `roles` int(1) NOT NULL,
   `tokenn` varchar(32) DEFAULT NULL,
   `statuss` tinyint(4) DEFAULT NULL
@@ -42,8 +42,8 @@ CREATE TABLE `login_db` (
 --
 
 INSERT INTO `login_db` (`id`, `nome`, `email`, `senha`, `roles`, `tokenn`, `statuss`) VALUES
-(1, 'Pedro', 'pedro@gmail.com', '1020', 1, 'JUTGD8B0', 1),
-(2, 'Enzo', 'enzo@gmail.com', '1020', 2, 'J92GS3AT', 1);
+(1, 'Pedro', 'pedro@gmail.com', '$2y$10$Ev.Nag3elgF6SHcDLlibQeA.t2J4qdarIjmj0xP8SkBgClW16IApa', 1, 'LJ9S4Q9H', 1),
+(2, 'Enzo', 'enzo@gmail.com', '$2y$10$B31mR8zwDpDrRpUVVaRKWOIQDzEOXTjE1rLZbKaVMrWjTaer7l0Jm', 2, 'QGL8IUOD', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -54,6 +54,7 @@ INSERT INTO `login_db` (`id`, `nome`, `email`, `senha`, `roles`, `tokenn`, `stat
 --
 ALTER TABLE `login_db`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `tokenn` (`tokenn`),
   ADD KEY `users_adm` (`roles`);
 
