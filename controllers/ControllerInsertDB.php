@@ -16,15 +16,15 @@ class ControllerEmailToken
         $this->mail->isSMTP();
         $this->mail->Host = 'smtp.mailtrap.io';
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = '2b8906c84d4f5a';
-        $this->mail->Password = '225a77e2bd0dba';
+        $this->mail->Username = 'seu user name mailtrap';
+        $this->mail->Password = 'sua senha mailtrap';
         $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $this->mail->Port = 587;
         $this->mail->CharSet = 'UTF-8';
         //DE
-        $this->mail->setFrom('pedroparro10@gmail.com', 'Test');
+        $this->mail->setFrom('pedro@gmail.com', 'Test');
         //PARA
-        $this->mail->addAddress('pedroparro10@gmail.com','Pedro');
+        $this->mail->addAddress('pedro@gmail.com','Pedro');
         //CONTEUDO
         $this->mail->isHTML(true);
         $this->mail->Subject = 'Contato do Site.';
